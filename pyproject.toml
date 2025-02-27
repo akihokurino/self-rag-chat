@@ -1,0 +1,46 @@
+[project]
+name = "self-rag-chat"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "None" }
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "python-dotenv (>=1.0.1,<2.0.0)",
+    "fastapi (>=0.115.8,<0.116.0)",
+    "openai (>=1.61.1,<2.0.0)",
+    "mypy (>=1.15.0,<2.0.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "pandas-stubs (>=2.2.3.241126,<3.0.0.0)",
+    "pypdf (>=5.3.0,<6.0.0)",
+    "black (>=25.1.0,<26.0.0)",
+    "azure-ai-documentintelligence (>=1.0.0,<2.0.0)",
+    "alembic (>=1.14.1,<2.0.0)",
+    "sqlalchemy (>=2.0.38,<3.0.0)",
+    "cohere (>=5.13.12,<6.0.0)",
+    "psycopg2-binary (>=2.9.10,<3.0.0)",
+    "pgvector (>=0.3.6,<0.4.0)",
+    "types-psycopg2 (>=2.9.21.20250121,<3.0.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry]
+package-mode = false
+
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+namespace_packages = true
+exclude = "(^|/|\\\\)venv|alembic($|/|\\\\)"
+[[tool.mypy.overrides]]
+module = "pgvector.*"
+ignore_missing_imports = true
